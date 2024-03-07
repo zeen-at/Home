@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .input {
+      @apply border-b-2 border-slate-700 pb-2 bg-transparent outline-none;
+    }
+    .auth_card{
+        @apply absolute md:shadow-xl block md:w-5/12 justify-center h-[500px] lg:h-[500px] md:h-[700px];
+    }
+    .slate_text{
+        @apply text-slate-500
+    }
+  }

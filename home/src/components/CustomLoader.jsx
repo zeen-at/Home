@@ -1,4 +1,3 @@
-/** @format */
 
 const CustomLoader = () => {
 	return (
