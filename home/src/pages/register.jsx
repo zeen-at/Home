@@ -7,6 +7,7 @@ import { registerAction } from "../utils/endpoints"
 import CustomLoader from "../components/CustomLoader"
 import { toast } from "react-toastify"
 import { useNavigate } from "react-router-dom"
+import OAuth from "../components/OAuth"
 
 
 
@@ -74,15 +75,19 @@ const Register = () => {
 				subtitle="Create your account"
 			>
 				<form onSubmit={handleSubmit}>
-					<div className="flex flex-col gap-12 my-10">
+					<div className="flex flex-col gap-8 my-5">
 						<CustomInput placeholder="Full Name" onChange={handleChange} name="fullname" value={formDetails.fullname} />
             <CustomInput placeholder="Email" onChange={handleChange} name="email" value={formDetails.email} />
             <CustomInput placeholder="Password" onChange={handleChange} name="password" value={formDetails.password} password={true} />
-            
+
+          </div>
+          <div className="my-2 flex flex-col gap-4">
+            <CustomButton title={loading ? <CustomLoader /> : "Create account"} onClick={handleClick} disabled={isdisabled} />
+            <OAuth />
+
           </div>
           <div className="items-center flex gap-2">
         <div>Have an account? <Link to="/login" className="text-blue-700 hover:text-blue-900">Login</Link></div>
-        <CustomButton title={loading ? <CustomLoader /> : "Create account"} onClick={handleClick} disabled={isdisabled} />
 
         </div>
 				</form>

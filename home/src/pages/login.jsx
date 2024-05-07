@@ -13,6 +13,7 @@ import {
   SignInSuccess,
   SignInFailure,
 } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -57,6 +58,10 @@ const Login = () => {
     }
   };
 
+  const googleSignIn = () => {
+
+  }
+
  
 
   useEffect(() => {
@@ -73,7 +78,7 @@ const Login = () => {
     <div>
       <CustomAuthBody title="Log In" subtitle="Log in to your account">
         <form onSubmit={handleSubmit}>
-          <div className="flex flex-col gap-12 my-10">
+          <div className="flex flex-col gap-8 my-8">
             <CustomInput
               placeholder="Email"
               onChange={handleChange}
@@ -88,6 +93,10 @@ const Login = () => {
               password={true}
             />
           </div>
+          <div className="flex flex-col gap-4 my-2">
+            <CustomButton title={loading ? <CustomLoader /> : "Log In"} onClick={""} disabled={isdisabled} />
+            <OAuth />
+          </div>
           <div className="items-center flex flex-col gap-6 lg:flex-row lg:justify-between">
             <div>
               Don't have an account?{" "}
@@ -98,10 +107,7 @@ const Login = () => {
                 Register
               </Link>
             </div>
-            <CustomButton
-              title={loading ? <CustomLoader/> : "Log In"}
-              disabled={isdisabled}
-            />
+           
           </div>
         </form>
       </CustomAuthBody>

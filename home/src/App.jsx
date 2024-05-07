@@ -12,6 +12,7 @@ import {
 import CustomLoader from "./components/CustomLoader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import PrivateProfile from "./ProtectedRoutes/PrivateProfile";
 
 const Header = lazy(() => import("./components/Header"));
 
@@ -20,15 +21,17 @@ function App() {
     <Suspense fallback={<CustomLoader />}>
       <BrowserRouter>
         <ToastContainer />
-
+        <Header />
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/" element={<Header />}>
-            <Route index element={<HomePage />} />
-            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/" element={<HomePage />} />
+
             <Route path="/about" element={<AboutPage />} />
-          </Route>
+
+            <Route element={<PrivateProfile />}>
+              <Route path="/profile" element={<ProfilePage />} />
+            </Route>
         </Routes>
       </BrowserRouter>
     </Suspense>
